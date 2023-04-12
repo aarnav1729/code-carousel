@@ -23,3 +23,5 @@ The background pattern and image can also be changed to better match your websit
 Credits:
 
 Code Carousel was created by Aarnav Singh, with inspiration from Hyperplexed (YT). The background image is courtesy of Unsplash.com, and the font used is Ibarra Real Nova.
+
+Link: https://aarnav1729.github.io/code-carousel/
