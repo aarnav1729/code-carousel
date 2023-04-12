@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Landing Navigation</title>
+
+    <style>
+        body {
+            background-color: rgb(20, 20, 20);
+            margin: 0px;
+        }
+
+        #menu {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-item {
+            color: white;
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-family: "Ibarra Real Nova", serif;
+
+            display: block;
+            text-decoration: none;
+            padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+            transition: opacity 400ms ease;
+        }
+
+        #menu-items {
+            margin-left: clamp(4rem, 20vw, 48rem);
+            z-index: 2;
+            position: relative;
+
+        }
+
+        .menu-item:hover {
+            opacity: 0.3;
+        }
+
+        #menu-items:hover > .menu-item:hover {
+            opacity: 1;
+        }
+
+        #menu-background-pattern {
+            height: 100vh;
+            width: 100vw;
+
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 9%, transparent 9%);
+
+            background-position: 0% 0%;
+            background-size: 12vmin 12vmin;
+
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+
+            transition: opacity 800ms ease, background-size 800ms ease;
+        }
+
+        #menu-items:hover ~ #menu-background-pattern {
+            background-size: 11vmin 11vmin;
+            opacity: 0.7;
+        }
+
+        #menu[data-active-index="0"] > #menu-background-pattern {
+            background-position: 0% -25%;
+        }
+
+        #menu[data-active-index="1"] > #menu-background-pattern {
+            background-position: 0% -50%;
+        }
+
+        #menu[data-active-index="2"] > #menu-background-pattern {
+            background-position: 0% -75%;
+        }
+
+        #menu[data-active-index="3"] > #menu-background-pattern {
+            background-position: 0% -100%;
+        }
+
+        #menu-background-image {
+            height: 100vh;
+            width: 100vw;
+
+            background-image: url("https://images.unsplash.com/photo-1484589065579-248aad0d8b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGxhdW5jaHBhZCUyMHBhdHRlcm58ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 0;
+            background-position: center 40%;
+            background-size: 110vmax;
+            opacity: 0.3;
+
+            transition: opacity 800ms ease, background-size 800ms ease, background-position 800ms ease;
+        }
+
+        #menu-items:hover ~ #menu-background-image {
+            background-size: 100vmax;
+            opacity: 0.10;
+        }
+
+        #menu[data-active-index="0"] > #menu-background-image {
+            background-position: center 45%;
+        }
+
+        #menu[data-active-index="1"] > #menu-background-image {
+            background-position: center 50%;
+        }
+
+        #menu[data-active-index="2"] > #menu-background-image {
+            background-position: center 55%;
+        }
+
+        #menu[data-active-index="3"] > #menu-background-image {
+            background-position: center 60%;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <div id="menu-items">
+            <a href = "https://aarnav1729.github.io/launch/" class="menu-item">Home</a>
+            <a href = "https://aarnav1729.github.io/portfolio/" class="menu-item">Portfolio</a>
+            <a href = "https://aarnav1729.github.io/weather-forecast/" class="menu-item">SkyCast</a>
+            <a href = "https://aarnav1729.github.io/scroll/" class="menu-item">Scroll</a>
+        </div>
+
+        <div id="menu-background-pattern"></div>
+        <div id="menu-background-image"></div>
+    </div>
+
+    <script>
+        const menu = document.getElementById("menu");
+
+        Array.from(document.getElementsByClassName("menu-item"))
+        .forEach((item, index) => {
+            item.onmouseover = () => {
+                menu.dataset.activeIndex = index;
+            }
+        });
+    </script>
+</body>
+</html>
